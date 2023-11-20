@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Image\Product\1IL5qxV1CamMo.png" />
+    <None Include="wwwroot\Image\Product\Kl68\kL68WDIMG_3350-royal.jpg" />
+    <None Include="wwwroot\Image\Product\M138b\CRTP8N139B-den-bong.jpg" />
+    <None Include="wwwroot\Image\Product\M138b\xPLcrDden-mo.jpg" />
+    <None Include="wwwroot\Image\SlideShow\335105670_754094992991680_4825864635662971881_n.jpg" />
+    <None Include="wwwroot\Image\SlideShow\Ducati_LeGiaHuy_2023.jpg" />
+    <None Include="wwwroot\Image\SlideShow\slide_1_img.webp" />
+    <None Include="wwwroot\Image\SlideShow\slide_2_img.webp" />
+    <None Include="wwwroot\Image\SlideShow\slide_3_mb.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.25">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+</Project>
