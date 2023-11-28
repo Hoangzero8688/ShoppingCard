@@ -17,7 +17,7 @@ namespace ASM_Net104_ShoppingCard.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.10")
+                .HasAnnotation("ProductVersion", "6.0.25")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -70,7 +70,6 @@ namespace ASM_Net104_ShoppingCard.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("AddedAt")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Quantity")
@@ -135,15 +134,12 @@ namespace ASM_Net104_ShoppingCard.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Url2")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Url3")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Url4")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -246,6 +242,9 @@ namespace ASM_Net104_ShoppingCard.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("MaSp")
                         .HasColumnType("nvarchar(max)");
 
@@ -262,14 +261,8 @@ namespace ASM_Net104_ShoppingCard.Migrations
                     b.Property<DateTime>("ProductionYear")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<float?>("Weight")
-                        .HasColumnType("real");
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<int>("categoryid")
                         .HasColumnType("int");
@@ -307,6 +300,10 @@ namespace ASM_Net104_ShoppingCard.Migrations
                     b.Property<int>("SizeId")
                         .HasColumnType("int");
 
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ColorId");
@@ -331,7 +328,6 @@ namespace ASM_Net104_ShoppingCard.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Comment")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("InvoiceItemId")
@@ -372,17 +368,17 @@ namespace ASM_Net104_ShoppingCard.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("MaxHeight")
+                    b.Property<int?>("MaxHeight")
                         .HasColumnType("int");
 
-                    b.Property<int>("MinHeight")
+                    b.Property<int?>("MinHeight")
                         .HasColumnType("int");
 
                     b.Property<string>("SizeName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("Weight")
+                    b.Property<float?>("Weight")
                         .HasColumnType("real");
 
                     b.HasKey("Id");
@@ -399,7 +395,6 @@ namespace ASM_Net104_ShoppingCard.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -427,7 +422,7 @@ namespace ASM_Net104_ShoppingCard.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Yob")
+                    b.Property<DateTime?>("Yob")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -546,7 +541,7 @@ namespace ASM_Net104_ShoppingCard.Migrations
                         .IsRequired();
 
                     b.HasOne("ASM_Net104_ShoppingCard.Models.Product", "Product")
-                        .WithMany("productVariants")
+                        .WithMany("ProductVariants")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -625,7 +620,7 @@ namespace ASM_Net104_ShoppingCard.Migrations
 
             modelBuilder.Entity("ASM_Net104_ShoppingCard.Models.Product", b =>
                 {
-                    b.Navigation("productVariants");
+                    b.Navigation("ProductVariants");
                 });
 
             modelBuilder.Entity("ASM_Net104_ShoppingCard.Models.ProductVariant", b =>
@@ -647,8 +642,7 @@ namespace ASM_Net104_ShoppingCard.Migrations
 
             modelBuilder.Entity("ASM_Net104_ShoppingCard.Models.User", b =>
                 {
-                    b.Navigation("Card")
-                        .IsRequired();
+                    b.Navigation("Card");
 
                     b.Navigation("Invoices");
                 });

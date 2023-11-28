@@ -8,6 +8,7 @@ namespace ASM_Net104_ShoppingCard.Models
         [Key]
         public int Id { get; set; }
 
+        public string name { get; set; }
         public int ProductId { get; set; }
         [ForeignKey("ProductId")]
         public virtual Product Product { get; set; }
@@ -25,6 +26,7 @@ namespace ASM_Net104_ShoppingCard.Models
         [ForeignKey("OriginId")]
 
         public virtual Origin Origin { get; set; }
+        [Range(0, int.MaxValue, ErrorMessage = "Invalid Quantity")]
         public int Quantity { get; set; }
 
         public ICollection<CardItem> cardItems { get; set; }

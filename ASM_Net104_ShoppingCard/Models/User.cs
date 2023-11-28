@@ -20,11 +20,11 @@ namespace ASM_Net104_ShoppingCard.Models
 
         [EmailAddress(ErrorMessage = "Erro format Email!")]
         public string Email { get; set; }
-        public string Address { get; set; }
-        public DateTime Yob { get; set; }
+        public string? Address { get; set; }
+        public DateTime? Yob { get; set; }
 
         // Navigation property để truy cập giỏ hàng từ User
-        public Card Card { get; set; }
+        public Card? Card { get; set; }
 
         //set Role
 

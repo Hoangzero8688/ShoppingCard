@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ASM_Net104_ShoppingCard.Context;
 using ASM_Net104_ShoppingCard.Models;
+using Microsoft.Extensions.Hosting;
+using System.Security.Policy;
 
 namespace ASM_Net104_ShoppingCard.Controllers
 {
     public class ImgUrlsController : Controller
     {
         private readonly MyDbContext _context;
+        private readonly IWebHostEnvironment _environment;
 
-        public ImgUrlsController(MyDbContext context)
+
+        public ImgUrlsController(MyDbContext context, IWebHostEnvironment environment)
         {
-            _context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _environment = environment ?? throw new ArgumentNullException(nameof(environment));
         }
 
         // GET: ImgUrls
@@ -56,10 +61,15 @@ namespace ASM_Net104_ShoppingCard.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Url1,Url2,Url3,Url4")] ImgUrl imgUrl)
+        public async Task<IActionResult> Create(ImgUrl imgUrl, IFormFile url1, IFormFile url2, IFormFile url3, IFormFile url4)
         {
             if (!ModelState.IsValid)
             {
+                imgUrl.Url1 = await ProcessImage(url1);
+                imgUrl.Url2 = await ProcessImage(url2);
+                imgUrl.Url3 = await ProcessImage(url3);
+                imgUrl.Url4 = await ProcessImage(url4);
+
                 _context.Add(imgUrl);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -67,6 +77,39 @@ namespace ASM_Net104_ShoppingCard.Controllers
             return View(imgUrl);
         }
 
+        private async Task<string> ProcessImage(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return null; // Không có tệp hoặc tệp trống
+            }
+
+            // Đổi tên tệp để tránh trùng lặp và xử lý các kí tự đặc biệt
+            var fileName = Path.GetFileNameWithoutExtension(file.FileName);
+            var fileExtension = Path.GetExtension(file.FileName);
+            var newFileName = $"{Guid.NewGuid()}{fileExtension}";
+
+            // Đường dẫn thư mục lưu trữ ảnh (chỉ là một ví dụ, bạn cần thay đổi tùy thuộc vào cấu trúc thư mục của bạn)
+            var uploadPath = Path.Combine(_environment.WebRootPath, "uploads");
+
+            // Đường dẫn đầy đủ của tệp mới
+            var filePath = Path.Combine(uploadPath, newFileName);
+
+            // Kiểm tra xem thư mục lưu trữ đã tồn tại chưa, nếu chưa thì tạo mới
+            if (!Directory.Exists(uploadPath))
+            {
+                Directory.CreateDirectory(uploadPath);
+            }
+
+            // Lưu tệp vào thư mục lưu trữ
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(fileStream);
+            }
+
+            // Trả về đường dẫn của tệp mới
+            return $"/uploads/{newFileName}";
+        }
         // GET: ImgUrls/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

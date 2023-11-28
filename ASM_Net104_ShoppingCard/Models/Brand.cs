@@ -11,7 +11,7 @@ namespace ASM_Net104_ShoppingCard.Models
         public string name { get; set; }
         //[DisplayName("Name Brand")]
 
-        public ICollection<Category> categories { get; set; }
+        //public ICollection<Category> categories { get; set; }
 
     }
 }

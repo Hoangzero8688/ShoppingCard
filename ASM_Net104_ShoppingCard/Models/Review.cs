@@ -8,7 +8,7 @@ namespace ASM_Net104_ShoppingCard.Models
         [Key]
         public int Id { get; set; }
         public int Rate { get; set; }
-        public string Comment { get; set; }
+        public string? Comment { get; set; }
 
         //set InvoiceItem
 

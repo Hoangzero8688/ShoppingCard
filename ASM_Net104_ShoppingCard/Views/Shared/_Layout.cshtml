@@ -7,8 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Use only one method to include Bootstrap CSS -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+  
     <link rel="stylesheet" href="~/ExamNet104.styles.css" asp-append-version="true" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
     <header>
@@ -27,9 +28,9 @@
                     <!-- Center elements -->
                     <div class="order-lg-last col-lg-4 col-sm-8 col-8">
                         <div class="d-flex float-end">
-                                <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-user-alt m-1 me-md-2"></i><p class="d-none d-md-block mb-0"> <i class="bi bi-box-arrow-right"></i> Sign in</p></a>
-                                <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-heart m-1 me-md-2"></i><p class="d-none d-md-block mb-0"> <i class="bi bi-person"></i> Acount</p> </a>
-                                <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-shopping-cart m-1 me-md-2"></i><p class="d-none d-md-block mb-0"><i class="bi bi-cart-plus-fill"></i> My cart</p> </a>
+                                <a class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank" asp-controller="Users" asp-action="Login" target="_blank"> <i class="fas fa-user-alt m-1 me-md-2"></i><p class="d-none d-md-block mb-0"> <i class="bi bi-box-arrow-right"></i> Sign in</p></a>
+                                <a class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank" asp-controller="Users" asp-action="User"> <i class="fas fa-heart m-1 me-md-2"></i><p class="d-none d-md-block mb-0"> <i class="bi bi-person"></i> Acount</p> </a>
+                                <a class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank" asp-controller="CardItems" asp-action="Card"> <i class="fas fa-shopping-cart m-1 me-md-2"></i><p class="d-none d-md-block mb-0"><i class="bi bi-cart-plus-fill"></i> My cart</p> </a>
                         </div>
                     </div>
                     <!-- Center elements -->
@@ -65,13 +66,13 @@
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Trang chủ</a>
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Giới thiệu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sản phẩm</a>
+                                <a class="nav-link" asp-area="" asp-controller="Products1" asp-action="ListProduct">Sản phẩm</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Phụ kiện</a>
@@ -86,12 +87,17 @@
                         <li>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Dropdown button
+                                        Admin
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Brand" asp-action="Index">Brand</a></li>
+                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Category</a></li>
+                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Products1" asp-action="Index">Products</a></li>
+                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="ProductVariants1" asp-action="Index">ProductVariants</a></li>
+                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Colors" asp-action="Index">Colors</a></li>
+                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="ImgUrls" asp-action="Index">ImgUrls</a></li>
+                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Sizes" asp-action="Index">Sizes</a></li>
+                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Origins" asp-action="Index">Origins</a></li>
                                     </ul>
                                 </div>
                         </li>
@@ -247,6 +253,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="~/css/StyleListProduct.css" />
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

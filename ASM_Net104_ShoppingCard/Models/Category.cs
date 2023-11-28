@@ -18,7 +18,7 @@ namespace ASM_Net104_ShoppingCard.Models
         [ForeignKey("IdBrand")]
         public virtual Brand Brand { get; set; }
 
-       
+        //public ICollection<Brand> Brands { get; set; }
 
     }
 }

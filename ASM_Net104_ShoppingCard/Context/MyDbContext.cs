@@ -49,6 +49,12 @@ namespace ASM_Net104_ShoppingCard.Context
                 .WithOne(c => c.User)
                 .HasForeignKey<Card>(c => c.UserId);
 
+            // Mối quan hệ n-n giữa Brand và Category
+            //modelBuilder.Entity<Brand>()
+            //    .HasMany(c => c.categories)
+            //    .WithMany(d => d.Brands)
+            //    .UsingEntity(ts => ts.ToTable("CategoryBrand"));
+
             // Configuration class brandconfig
             //modelBuilder.ApplyConfiguration(new BrandConfig());
 

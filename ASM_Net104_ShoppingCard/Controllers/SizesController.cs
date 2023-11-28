@@ -58,7 +58,7 @@ namespace ASM_Net104_ShoppingCard.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,SizeName,MinHeight,MaxHeight,Weight")] Size size)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(size);
                 await _context.SaveChangesAsync();
@@ -95,7 +95,7 @@ namespace ASM_Net104_ShoppingCard.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
