@@ -48,6 +48,27 @@ namespace ASM_Net104_ShoppingCard.Controllers
             return View();
         }
 
+        public async Task<IActionResult> ListProduct1(int? page)
+        {
+            List<Product> products = _context.Products.Include(p => p.Category).Include(c => c.ProductVariants).ToList();
+            ViewData["abc"] = products;
+
+            const int productsPerPage = 9;
+            int currentPage = page ?? 1;
+
+            // Calculate total pages
+            int totalPages = (int)Math.Ceiling((double)products.Count / productsPerPage);
+
+            // Get the subset of products for the current page
+            var productsForPage = products.Skip((currentPage - 1) * productsPerPage).Take(productsPerPage).ToList();
+
+            // Pass products and pagination information to the view
+            ViewData["Products"] = productsForPage;
+            ViewData["TotalPages"] = totalPages;
+            ViewData["CurrentPage"] = currentPage;
+            return View();
+        }
+
         // GET: Products1/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -75,8 +96,34 @@ namespace ASM_Net104_ShoppingCard.Controllers
             return View(product);
         }
 
-        // GET: Products1/Create
-        public IActionResult Create()
+		public async Task<IActionResult> Details1(int? id)
+		{
+			if (id == null || _context.Products == null)
+			{
+				return NotFound();
+			}
+
+			var product = await _context.Products
+			   .Include(p => p.Category)
+			   .ThenInclude(p => p.Brand)
+			   .Include(p => p.ProductVariants)
+				   .ThenInclude(pv => pv.ImgUrl)  // Nối quan hệ với ImgUrl
+			   .Include(p => p.ProductVariants)
+				   .ThenInclude(pv => pv.Size)  // Nối quan hệ với Size
+			   .Include(p => p.ProductVariants)
+				   .ThenInclude(pv => pv.color)  // Nối quan hệ với Color
+			   .FirstOrDefaultAsync(m => m.Id == id);
+
+			if (product == null)
+			{
+				return NotFound();
+			}
+
+			return View(product);
+		}
+
+		// GET: Products1/Create
+		public IActionResult Create()
         {
             ViewData["categoryid"] = new SelectList(_context.categories, "Id", "Id");
             return View();

@@ -4,119 +4,179 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ExamNet104</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  @*   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Use only one method to include Bootstrap CSS -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
   
     <link rel="stylesheet" href="~/ExamNet104.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"> *@
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/animate.css">
+
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/css/aos.css">
+
+    <link rel="stylesheet" href="~/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/css/flaticon.css">
+    <link rel="stylesheet" href="~/css/icomoon.css">
+    <link rel="stylesheet" href="~/css/style.css">
 </head>
-<body>
-    <header>
-    <div class="container">
-        <!-- Jumbotron -->
-        <div class="p-3 text-center bg-white border-bottom">
+<body class="goto-here">
+    <header >
+    @* <div class="container"> *@
+        <div class="py-1 bg-black">
             <div class="container">
-                <div class="row gy-3">
-                    <!-- Left elements -->
-                    <div class="col-lg-2 col-sm-4 col-4">
-                        <a href="https://mdbootstrap.com/" target="_blank" class="float-start">
-                            <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="35" />
-                        </a>
-                    </div>
-                    <!-- Left elements -->
-                    <!-- Center elements -->
-                    <div class="order-lg-last col-lg-4 col-sm-8 col-8">
-                        <div class="d-flex float-end">
-                                <a class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank" asp-controller="Users" asp-action="Login" target="_blank"> <i class="fas fa-user-alt m-1 me-md-2"></i><p class="d-none d-md-block mb-0"> <i class="bi bi-box-arrow-right"></i> Sign in</p></a>
-                                <a class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank" asp-controller="Users" asp-action="User"> <i class="fas fa-heart m-1 me-md-2"></i><p class="d-none d-md-block mb-0"> <i class="bi bi-person"></i> Acount</p> </a>
-                                <a class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank" asp-controller="CardItems" asp-action="Card"> <i class="fas fa-shopping-cart m-1 me-md-2"></i><p class="d-none d-md-block mb-0"><i class="bi bi-cart-plus-fill"></i> My cart</p> </a>
-                        </div>
-                    </div>
-                    <!-- Center elements -->
-                        <!-- Right elements -->
-                        <div class="col-lg-6 col-md-12 col-12">
-                            <div class="input-group float-center ">
-                                <div class="form-outline col-8">
-                                    <input type="search" id="form1" class="form-control" placeholder="Search" />
-                                  
-                                </div>
-                                <button type="button" class="btn btn-primary shadow-0 col-4">
-                                    <i class="bi bi-search"></i>
-                                </button>
-                              
+                <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+                    <div class="col-lg-12 d-block">
+                        <div class="row d-flex">
+                            <div class="col-md pr-4 d-flex topper align-items-center">
+                                <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+                                <span class="text">+03 69639 117</span>
+                            </div>
+                            <div class="col-md pr-4 d-flex topper align-items-center">
+                                <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+                                <span class="text">pklpassion@email.com</span>
+                            </div>
+                            <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+                                <span class="text">3-5 Business days delivery &amp; Free Returns</span>
                             </div>
                         </div>
-                        <!-- Right elements -->
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Jumbotron -->
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <!-- Container wrapper -->
-            <div class="container justify-content-center justify-content-md-between">
-                <!-- Toggle button -->
-                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index2">PKL PASSION SHOP</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
                 </button>
 
-                <!-- Collapsible wrapper -->
-                <div class="collapse navbar-collapse " id="navbarLeftAlignExample">
-                    <!-- Left links -->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" asp-controller="Home" asp-action="Index2">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catalog</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown04">
+                                <a class="dropdown-item" asp-controller="Products1" asp-action="Listproduct1">Shop</a>
+                                @* <a class="dropdown-item" asp-controller="Products1" asp-action="Listproduct1">Single Product</a> *@
+                                <a class="dropdown-item" asp-controller="Navbars" asp-action="Cart">Cart</a>
+                                <a class="dropdown-item" asp-controller="Navbars" asp-action="CheckOut">Checkout</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Giới thiệu</a>
-                        </li>
-                        <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Products1" asp-action="ListProduct">Sản phẩm</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Phụ kiện</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đánh giá</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Hỗ trợ</a>
-                        </li>
-                        <!-- Navbar dropdown -->
-                        <li>
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Admin
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Brand" asp-action="Index">Brand</a></li>
-                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Category</a></li>
-                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Products1" asp-action="Index">Products</a></li>
-                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="ProductVariants1" asp-action="Index">ProductVariants</a></li>
-                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Colors" asp-action="Index">Colors</a></li>
-                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="ImgUrls" asp-action="Index">ImgUrls</a></li>
-                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Sizes" asp-action="Index">Sizes</a></li>
-                                        <li><a class="nav-link text-dark" asp-area="" asp-controller="Origins" asp-action="Index">Origins</a></li>
-                                    </ul>
-                                </div>
+                        <li class="nav-item"><a asp-controller="Navbars" asp-action="About" class="nav-link">About</a></li>
+                        <li class="nav-item"><a asp-controller="Navbars" asp-action="Blog" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a asp-controller="Navbars" asp-action="Contact" class="nav-link">Contact</a></li>
+                        <li class="nav-item cta cta-colored"><a asp-controller="Navbars" asp-action="Cart" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+                        <li class="nav-item cta cta-colored"><a asp-controller="Navbars" asp-action="Cart" class="nav-link"><span class="icon-shopping_cart"></span>Login/Account</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown04">
+                         <a class="dropdown-item" asp-area="" asp-controller="Brand" asp-action="Index">Brand</a> 
+                         <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Index">Category</a> 
+                         <a class="dropdown-item" asp-area="" asp-controller="Products1" asp-action="Index">Products</a> 
+                         <a class="dropdown-item" asp-area="" asp-controller="ProductVariants1" asp-action="Index">ProductVariants</a> 
+                         <a class="dropdown-item" asp-area="" asp-controller="Colors" asp-action="Index">Colors</a> 
+                         <a class="dropdown-item" asp-area="" asp-controller="ImgUrls" asp-action="Index">ImgUrls</a> 
+                         <a class="dropdown-item" asp-area="" asp-controller="Sizes" asp-action="Index">Sizes</a> 
+                         <a class="dropdown-item" asp-area="" asp-controller="Origins" asp-action="Index">Origins</a> 
+                            </div>
                         </li>
                     </ul>
-                        
-                    <!-- Left links -->
                 </div>
             </div>
-            <!-- Container wrapper -->
         </nav>
-        <!-- Navbar -->
+        <!-- END nav -->
     </header>
 
-        <div class="container">
+        <div >
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
         </div>
-    <footer class="text-center text-lg-start text-muted bg-primary mt-3">
+
+    <footer class="ftco-footer ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="mouse">
+                    <a href="#" class="mouse-icon">
+                        <div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+                    </a>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">PKL Passion Shop</h2>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.facebook.com/PKl.Passion.8688"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Menu</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">Shop</a></li>
+                            <li><a href="#" class="py-2 d-block">About</a></li>
+                            <li><a href="#" class="py-2 d-block">Journal</a></li>
+                            <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Help</h2>
+                        <div class="d-flex">
+                            <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+                                <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
+                                <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
+                                <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
+                                <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+                            </ul>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="py-2 d-block">FAQs</a></li>
+                                <li><a href="#" class="py-2 d-block">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">98 Mễ Trì thượng Street,Mễ Trì, Nam Từ Liêm, Hà Nội.</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+36 9639 117</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">pklpassion@gmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+   @*  <footer class="text-center text-lg-start text-muted bg-primary mt-3">
 
 
         <!-- Section: Links  -->
@@ -246,14 +306,31 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> *@
     
 
     <!-- Footer -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+   @*  <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <link rel="stylesheet" href="~/css/StyleListProduct.css" />
+    <link rel="stylesheet" href="~/css/StyleListProduct.css" /> *@
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.stellar.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <script src="~/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/js/google-map.js"></script>
+    <script src="~/js/main.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

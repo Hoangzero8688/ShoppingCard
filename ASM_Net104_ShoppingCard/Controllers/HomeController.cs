@@ -27,6 +27,13 @@ namespace ASM_Net104_ShoppingCard.Controllers
             return View();
         }
 
+        public IActionResult Index2()
+        {
+            List<ProductVariant> productVariants = _dbcontext.productVariants.Include(p => p.color).Include(c => c.ImgUrl).Include(d => d.Origin).Include(g => g.Product).Include(f => f.Origin).ToList();
+            ViewData["abc"] = productVariants;
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
