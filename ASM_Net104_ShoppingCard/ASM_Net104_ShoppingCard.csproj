@@ -7,15 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Image\Product\1IL5qxV1CamMo.png" />
-    <None Include="wwwroot\Image\Product\Kl68\kL68WDIMG_3350-royal.jpg" />
-    <None Include="wwwroot\Image\Product\M138b\CRTP8N139B-den-bong.jpg" />
-    <None Include="wwwroot\Image\Product\M138b\xPLcrDden-mo.jpg" />
-    <None Include="wwwroot\Image\SlideShow\335105670_754094992991680_4825864635662971881_n.jpg" />
-    <None Include="wwwroot\Image\SlideShow\Ducati_LeGiaHuy_2023.jpg" />
-    <None Include="wwwroot\Image\SlideShow\slide_1_img.webp" />
-    <None Include="wwwroot\Image\SlideShow\slide_2_img.webp" />
-    <None Include="wwwroot\Image\SlideShow\slide_3_mb.jpg" />
+    <Content Remove="Views\Home\index1.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,7 +23,12 @@
 
   <ItemGroup>
     <Folder Include="Controllers\New\" />
+    <Folder Include="wwwroot\images\Banner3\" />
     <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Home\index1.cshtml" />
   </ItemGroup>
 
 </Project>
